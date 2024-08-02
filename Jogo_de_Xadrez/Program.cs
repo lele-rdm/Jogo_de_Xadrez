@@ -7,9 +7,7 @@ namespace Jogo_de_Xadrez
     {
         static void Main(string[] args)
         {
-            Posicao P = new Posicao(3, 4);
-
-            Console.WriteLine($"Posição: {P}");
+            Tabuleiroo tab = new Tabuleiroo(8, 8);
         }
     }
 }
