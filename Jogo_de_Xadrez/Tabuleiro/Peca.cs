@@ -8,7 +8,7 @@ namespace Jogo_de_Xadrez.Tabuleiro
 
         public Cor Cor { get; protected set; }
 
-        public int QtdMovimentos { get; protected set; }
+        public int QteMovimentos { get; protected set; }
 
         public Tabuleiroo Tab { get; protected set; }
 
@@ -17,7 +17,9 @@ namespace Jogo_de_Xadrez.Tabuleiro
             Posicao = posicao;
             Cor = cor;
             Tab = tab;
-            QtdMovimentos = 0;
+            QteMovimentos = 0;
         }
+
+
     }
 }

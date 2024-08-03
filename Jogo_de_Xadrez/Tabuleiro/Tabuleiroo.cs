@@ -1,4 +1,5 @@
 ﻿using System;
+using Jogo_de_Xadrez.Tabuleiro;
 
 namespace Jogo_de_Xadrez.Tabuleiro
 {
@@ -16,5 +17,10 @@ namespace Jogo_de_Xadrez.Tabuleiro
             Colunas = colunas;
             Pecas = new Peca[linhas, colunas];
         }
+
+        public Peca Peca(int linha, int coluna)
+        {
+            return Pecas[linha, coluna];
+        }
     }
-}
+} 
