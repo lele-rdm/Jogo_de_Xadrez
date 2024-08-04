@@ -12,9 +12,9 @@ namespace Jogo_de_Xadrez.Tabuleiro
 
         public Tabuleiroo Tab { get; protected set; }
 
-        public Peca(Posicao posicao, Cor cor, Tabuleiroo tab)
+        public Peca(Tabuleiroo tab, Cor cor)
         {
-            Posicao = posicao;
+            Posicao = null;
             Cor = cor;
             Tab = tab;
             QteMovimentos = 0;
