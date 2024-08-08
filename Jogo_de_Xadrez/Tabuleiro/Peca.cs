@@ -20,6 +20,11 @@ namespace Jogo_de_Xadrez.Tabuleiro
             QteMovimentos = 0;
         }
 
+        public void IncrementarQteMovimentos()
+        {
+            QteMovimentos++;
+        }
+
 
     }
 }
