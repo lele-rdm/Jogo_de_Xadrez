@@ -2,7 +2,7 @@
 
 namespace Jogo_de_Xadrez.Tabuleiro
 {
-    class Peca
+    abstract class Peca
     {
         public Posicao Posicao { get; set; }
 
@@ -25,6 +25,6 @@ namespace Jogo_de_Xadrez.Tabuleiro
             QteMovimentos++;
         }
 
-
+        public abstract bool[,] MovimentosPossiveis();
     }
 }
