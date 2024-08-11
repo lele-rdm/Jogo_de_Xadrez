@@ -29,68 +29,57 @@ namespace Jogo_de_Xadrez.Xadrez
             // Acima
 
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
-            }
-
-            // Nordeste
-
-            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-            {
-                mat[pos.Linha, pos.Coluna] = true;
-            }
-
-            // Direita
-
-            pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-            {
-                mat[pos.Linha, pos.Coluna] = true;
-            }
-
-            // Suldeste
-
-            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-            {
-                mat[pos.Linha, pos.Coluna] = true;
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.Linha = pos.Linha - 1;
             }
 
             // Abaixo
 
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.Linha = pos.Linha + 1;
             }
 
-            // Sudoeste
+            // Direita
 
-            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
+            pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.Coluna = pos.Coluna + 1;
+
             }
 
             // Esquerda
 
-            pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
+            pos.DefinirValores(Posicao.Linha , Posicao.Coluna - 1);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
-            }
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.Coluna = pos.Coluna - 1;
 
-            // Noroeste
-
-            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
-            if (Tab.PosicaoValida(pos) && PodeMover(pos))
-            {
-                mat[pos.Linha, pos.Coluna] = true;
             }
             return mat;
         }
-
     }
 }
