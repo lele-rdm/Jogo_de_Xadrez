@@ -5,8 +5,8 @@ namespace Jogo_de_Xadrez.Xadrez
 {
     class PartidaDeXadrez
     {
-        public Tabuleiroo Tab {  get; private set; }
-        public int Turno { get; private set; } 
+        public Tabuleiroo Tab { get; private set; }
+        public int Turno { get; private set; }
         public Cor JogadorAtual { get; private set; }
         public bool Terminada { get; private set; }
 
@@ -48,6 +48,14 @@ namespace Jogo_de_Xadrez.Xadrez
             if (!Tab.Peca(pos).ExisteMovimentosPossiveis())
             {
                 throw new TabuleirooException("Não há movimentos possíveis para a peça de origem escolhida!");
+            }
+        }
+
+        public void ValidarPosicaoDeDestino(Posicao origem, Posicao destino)
+        {
+            if (!Tab.Peca(origem).PodeMoverPara(destino))
+            {
+                throw new TabuleirooException("Posição de destino inválida!");
             }
         }
 
