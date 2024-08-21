@@ -28,9 +28,12 @@ namespace Jogo_de_Xadrez.Xadrez
         {
             Peca p = Tab.RetirarPeca(origem);
             p.IncrementarQteMovimentos();
-            Tab.RetirarPeca(destino);
             Peca pecaCapturada = Tab.RetirarPeca(destino);
             Tab.ColocarPeca(p, destino);
+            if (pecaCapturada != null)
+            {
+                Capturadas.Add(pecaCapturada);
+            }
         }
 
         public void RealizaJogada(Posicao origem, Posicao destino)
@@ -74,6 +77,33 @@ namespace Jogo_de_Xadrez.Xadrez
             {
                 JogadorAtual = Cor.Branca;
             }
+        }
+
+        public HashSet<Peca> PecasCapturadas(Cor cor)
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach (Peca x in Capturadas)
+            {
+                if (x.Cor == cor)
+                {
+                    aux.Add(x);
+                }
+            }
+            return aux;
+        }
+
+        public HashSet<Peca> PecasEmJogo(Cor cor)
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach (Peca x in Pecas)
+            {
+                if (x.Cor == cor)
+                {
+                    aux.Add(x);
+                }
+            }
+            aux.ExceptWith(PecasCapturadas(cor));
+            return aux;
         }
 
         public void ColocarNovaPeca(char coluna, int linha, Peca peca)
