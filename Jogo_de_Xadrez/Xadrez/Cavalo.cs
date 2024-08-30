@@ -35,7 +35,7 @@ namespace Jogo_de_Xadrez.Xadrez
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-            pos.DefinirValores(Posicao.Linha - 2, Posicao.Coluna + 1);
+            pos.DefinirValores(Posicao.Linha - 2, Posicao.Coluna - 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
